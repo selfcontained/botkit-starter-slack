@@ -28,4 +28,9 @@ module.exports = function(webserver, controller) {
             if (err) console.log(err)
         })
     })
+
+    controller.on('bb.team_added', function (bot) {
+        console.log('Received bb.team_added, add team was added to team store')
+    })
+
 }
