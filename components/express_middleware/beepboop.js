@@ -21,4 +21,11 @@ module.exports = function(webserver, controller) {
             next(err)
         })
     })
+
+    controller.on('bb.team_removed', function (bot) {
+        console.log('Received bb.team_removed, deleting team from team store')
+        controller.storage.teams.delete(bot.identifyTeam(), function (err) {
+            if (err) console.log(err)
+        })
+    })
 }
