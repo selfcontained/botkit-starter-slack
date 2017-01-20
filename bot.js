@@ -51,11 +51,11 @@ This bot demonstrates many of the core features of Botkit:
     -> http://howdy.ai/botkit
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-if (!process.env.clientId || !process.env.clientSecret || !process.env.PORT) {
-  console.log('Error: Specify clientId clientSecret and PORT in environment');
-  usage_tip();
-  process.exit(1);
-}
+// if (!process.env.clientId || !process.env.clientSecret || !process.env.PORT) {
+//   console.log('Error: Specify clientId clientSecret and PORT in environment');
+//   usage_tip();
+//   process.exit(1);
+// }
 
 var Botkit = require('botkit');
 var debug = require('debug')('botkit:main');
@@ -78,7 +78,7 @@ var webserver = require(__dirname + '/components/express_webserver.js')(controll
 
 // Set up a simple storage backend for keeping a record of customers
 // who sign up for the app via the oauth
-require(__dirname + '/components/user_registration.js')(controller);
+// require(__dirname + '/components/user_registration.js')(controller);
 
 // Send an onboarding message when a new team joins
 require(__dirname + '/components/onboarding.js')(controller);
