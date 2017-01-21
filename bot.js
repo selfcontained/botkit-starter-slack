@@ -68,7 +68,7 @@ var controller = Botkit.slackbot({
     scopes: ['bot'],
     studio_token: process.env.studio_token,
     studio_command_uri: process.env.studio_command_uri,
-    json_file_store: __dirname + '/.db/' // store user data in a simple JSON format
+    storage: require('./beepboop/storage')
 });
 
 controller.startTicking();
@@ -92,7 +92,7 @@ require(__dirname + '/components/onboarding.js')(controller);
 // rtm_manager.reconnect();
 
 // Enable Dashbot.io plugin
-require(__dirname + '/components/plugin_dashbot.js')(controller);
+// require(__dirname + '/components/plugin_dashbot.js')(controller);
 
 
 var normalizedPath = require("path").join(__dirname, "skills");
