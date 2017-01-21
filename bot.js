@@ -68,7 +68,7 @@ var controller = Botkit.slackbot({
     scopes: ['bot'],
     studio_token: process.env.studio_token,
     studio_command_uri: process.env.studio_command_uri,
-    storage: require('./beepboop/storage')
+    storage: require('./beepboop/storage')()
 });
 
 controller.startTicking();
