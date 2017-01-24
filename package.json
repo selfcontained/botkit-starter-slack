@@ -4,13 +4,14 @@
   "description": "A starter kit for building a custom bot with Botkit Studio",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node bot.js",
+    "watch": "nodemon bot.js -w .",
+    "test": "standard"
   },
   "dependencies": {
     "beepboop-persist": "^0.2.1",
     "body-parser": "^1.15.2",
     "botkit": "^0.4",
-    "dashbot": "0.7.4",
     "deap": "^1.0.0",
     "debug": "^2.3.3",
     "express": "^4.14.0",
@@ -19,7 +20,10 @@
     "wordfilter": "^0.2.6",
     "wreck": "^10.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "standard": "^8.6.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/howdyai/botkit-studio-starter.git"
@@ -33,6 +37,6 @@
     "chatbots",
     "slack"
   ],
-  "author": "ben@howdy.ai",
-  "license": "ISC"
+  "author": "Brad Harris",
+  "license": "MIT"
 }

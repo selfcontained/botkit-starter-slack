@@ -1,6 +1,6 @@
 name: Botkit Starter Kit
 description: A starting point for building custom Slack applications
 config:
-  - name: studio_token
+  - name: BOTKIT_STUDIO_TOKEN
     friendly_name: Botkit Studio Token
     description: Token associated with your bot in Botkit Studio
