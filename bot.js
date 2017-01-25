@@ -7,39 +7,6 @@
 
 This is a sample Slack bot built with Botkit.
 
-This bot demonstrates many of the core features of Botkit:
-
-* Connect to Slack using the real time API
-* Receive messages based on "spoken" patterns
-* Reply to messages
-* Use the conversation system to ask questions
-* Use the built in storage system to store and retrieve information
-  for a user.
-
-# RUN THE BOT:
-
-  Create a new app via the Slack Developer site:
-
-    -> http://api.slack.com
-
-  Get a Botkit Studio token from Botkit.ai:
-
-    -> https://studio.botkit.ai/
-
-  Run your bot from the command line:
-
-    clientId=<MY SLACK TOKEN> clientSecret=<my client secret> PORT=<3000> studio_token=<MY BOTKIT STUDIO TOKEN> node bot.js
-
-# USE THE BOT:
-
-    Navigate to the built-in login page:
-
-    https://<myhost.com>/login
-
-    This will authenticate you with Slack.
-
-    If successful, your bot will come online and greet you.
-
 # EXTEND THE BOT:
 
   Botkit has many features for building cool and useful bots!
@@ -49,13 +16,13 @@ This bot demonstrates many of the core features of Botkit:
     -> http://howdy.ai/botkit
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-var STUDIO_TOKEN = process.env.studio_token
+var STUDIO_TOKEN = process.env.BOTKIT_STUDIO_TOKEN
 
 var Botkit = require('botkit')
 var fs = require('fs')
 var path = require('path')
 var debug = require('debug')('botkit:main')
-var BotkitStorageBeepBoop = require('./beepboop/storage')
+var BotkitStorageBeepBoop = require('botkit-storage-beepboop')
 
 // Create the Botkit controller, which controls all instances of the bot.
 var controller = Botkit.slackbot({
@@ -72,7 +39,7 @@ require('./components/webserver/')(controller)
 // Register sample "skills"
 var normalizedPath = path.join(__dirname, 'skills')
 fs.readdirSync(normalizedPath).forEach(file => {
-  require(path.join('./skills', file))(controller)
+  require(path.join(normalizedPath, file))(controller)
 })
 
 // This captures and evaluates any message sent to the bot as a DM

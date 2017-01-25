@@ -1,4 +1,8 @@
-# Botkit Starter Kit for Slack Bots
+# Botkit Starter Kit for Slack Bots on Beep Boop
+
+This repo is a fork of the [Botkit Starter Kit](https://github.com/howdyai/botkit-starter-slack) from [Howdy](https://howdy.ai/).  Some changes have been made to focus on running it on [Beep Boop][beepboop].
+
+---
 
 This repo contains everything you need to get started building a bot with Botkit and Botkit Studio!
 
@@ -9,36 +13,46 @@ that created and maintains the open source Botkit library, [Howdy.](https://howd
 
 While Botkit Studio is *not required* to build a bot using Botkit, we highly recommend it as your bot will be easier to manage, customize and extend.
 
-### Instant Start
+### Beep Boop Setup
 
-[Remix this project on Gomix](https://gomix.com/#!/project/botkit-slack)
+The easiest way to get started is to create a new project on [Beep Boop](https://beepboophq.com/0_o/my-projects/new) and select this sample repository as your starting point. There you'll be walked through setting up your Slack App and get your own copy of this repository.  Once you've set all of that up, you can clone your new repository and make changes locally, then push them to Beep Boop to trigger new builds of your bot.  We recommend adding your bot to a team and setting up that team as your development team using [Beep Boop's team override feature](https://beepboophq.com/docs/article/testing-slack-integrations-locally).
 
-[Deploy to Heroku](https://heroku.com/deploy?template=https://github.com/howdyai/botkit-starter-slack/master)
+### Botkit Studio Seutp
 
-### Get Started
+Get a Botkit Studio token [from your Botkit developer account](https://studio.botkit.ai/) and plug that into the settings page of your Beep Boop Project.
 
-Clone this repository:
+![image](https://cloud.githubusercontent.com/assets/367275/22307301/ab83766c-e2ff-11e6-8162-6b6bc900bd08.png)
 
-`git clone https://github.com/howdyai/botkit-starter-slack.git`
+### Local Development Setup
 
-Install dependencies, including [Botkit](https://github.com/howdyai/botkit):
+[Read about](https://beepboophq.com/docs/article/testing-slack-integrations-locally) how Beep Boop makes developing Slack Apps locally easier.
 
-```
-cd botkit-starter-slack
+Install dependencies:
+
+```bash
 npm install
 ```
 
-Set up a new Slack application via the Slack developer portal. This is a multi-step process, but only takes a few minutes. [Read this step-by-step guide](https://github.com/howdyai/botkit/blob/master/docs/slack-events-api.md) to make sure everything is set up.
+You'll need to set the follwoing environment variables when running locally. It gets set for you automatically when running on Beep Boop.  You can save these in a file called `env.sh` (which is `.gitignore`'d) and then source that.
 
-Next, get a Botkit Studio token [from your Botkit developer account](https://studio.botkit.ai/)
+```bash
+export BOTKIT_STUDIO_TOKEN="API Token from Botkit Studio"
+export BEEPBOOP_TOKEN="API Token from your Beep Boop Project Settings"
+export SLACK_VERIFY_TOKEN="Verify Token from your Slack App"
+```
 
-Now, run your bot from the command line with your new tokens:
+To start your bot locally, just run:
 
-`clientId=<MY SLACK TOKEN> clientSecret=<my client secret> PORT=<3000> studio_token=<MY BOTKIT STUDIO TOKEN> node bot.js`
+```bash
+npm start
+```
 
-Now, visit your new bot's login page: http://localhost:3000/login
+...or to have it in watch mode to restart on changes:
 
-Once successfully logged in, your bot should connect to Slack AND Botkit Studio and leap into action!
+
+```bash
+npm run watch
+```
 
 Continue your journey to becoming a champion botmaster by [reading the Botkit Studio SDK documentation here.](https://github.com/howdyai/botkit/blob/master/readme-studio.md)
 
@@ -50,7 +64,7 @@ Developers will build custom features as modules that live in the `skills/` fold
 
 A skill module should be in the format:
 
-```
+```javascript
 module.exports = function(controller) {
 
     // add event handlers to controller
@@ -61,11 +75,4 @@ module.exports = function(controller) {
 }
 ```
 
-### Customize Storage
-
-By default, the starter kit uses a simple file-system based storage mechanism to
-record information about the teams and users that interact with the bot. While
-this is fine for development, or use by a single team, most developers will want
-to customize the code to use a real database system.
-
-There are [Botkit plugins for all the major database systems](https://github.com/howdyai/botkit/blob/master/readme-middlewares.md#storage-modules) which can be enabled with just a few lines of code.
+[beepboop]: https://beepboophq.com

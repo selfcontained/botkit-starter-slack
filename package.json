@@ -1,7 +1,7 @@
 {
   "name": "botkit-studio-starter",
   "version": "0.0.1",
-  "description": "A starter kit for building a custom bot with Botkit Studio",
+  "description": "A starter kit for building a custom bot with Botkit Studio on Beep Boop",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js",
@@ -9,16 +9,14 @@
     "test": "standard"
   },
   "dependencies": {
-    "beepboop-persist": "^0.2.1",
     "body-parser": "^1.15.2",
     "botkit": "^0.4",
-    "deap": "^1.0.0",
+    "botkit-storage-beepboop": "^1.0.0",
     "debug": "^2.3.3",
     "express": "^4.14.0",
     "querystring": "^0.2.0",
     "request": "^2.79.0",
-    "wordfilter": "^0.2.6",
-    "wreck": "^10.0.0"
+    "wordfilter": "^0.2.6"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",
@@ -26,16 +24,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/howdyai/botkit-studio-starter.git"
+    "url": "https://github.com/BeepBoopHQ/botkit-studio-starter.git"
   },
   "bugs": {
-    "url": "https://github.com/howdyai/botkit-studio-starter/issues"
+    "url": "https://github.com/BeepBoopHQ/botkit-studio-starter/issues"
   },
-  "homepage": "https://github.com/howdyai/botkit-studio-starter",
+  "homepage": "https://github.com/BeepBoopHQ/botkit-studio-starter",
   "keywords": [
     "bots",
     "chatbots",
-    "slack"
+    "slack",
+    "beepboop",
+    "botkit"
   ],
   "author": "Brad Harris",
   "license": "MIT"
